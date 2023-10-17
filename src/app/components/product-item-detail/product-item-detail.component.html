@@ -1,1 +1,23 @@
-<p>product-item-detail works!</p>
+<div class="detail-container">
+    <img [src]="product?.url"/>
+    
+    <div class="detail-item">
+        <p><b>{{ product?.name }}</b></p>
+        <p>${{ product?.price }}</p>
+        <p>{{ product?.description }}</p>
+        <select class="form-select form-select-sm mb-3" (change)="onChange(item.value)" #item>
+            <option *ngFor="let quantity of options" [value]="quantity">{{ quantity }}</option>
+        </select>
+        <button type="button" 
+                class="btn btn-primary"
+                (click)="addToCart()">
+            Add to cart
+        </button>
+        <div class="mt-2">
+            <a class="text-decoration-none" routerLink="/productList">
+                <fa-icon [icon]="leftArrowIcon"></fa-icon>
+                Back to product list
+            </a>
+        </div>
+    </div>
+</div>

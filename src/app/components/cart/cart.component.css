@@ -5,12 +5,13 @@ img {
   
   .form-margin {
     margin-bottom: 12px;
+    margin-left: 30px;
   }
   
   .cart-item {
     display: flex;
     flex-direction: row;
-    margin-bottom: 20px;
+    margin-bottom: 30px;
   }
   
   .cart-item-details {
@@ -24,6 +25,7 @@ img {
   .number-input {
     width: 80px;
     text-align: center;
+    outline: 0;
   }
   
   .cart-container {

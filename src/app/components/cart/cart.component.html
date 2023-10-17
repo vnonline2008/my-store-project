@@ -1,1 +1,41 @@
-<p>cart works!</p>
+<div class="cart-container">
+    <div class="cart-panel">
+        <div class="cart-item" *ngFor="let item of data">
+            <img [src]="item.url">
+            <div class="cart-item-details">
+                <h5>{{ item.name }}</h5>
+                <p>${{ item.price }}</p>
+                <div>
+                    <p>Amount: <input type="number" [(ngModel)]="item.quantity" (ngModelChange)="changeAmount(item)"
+                            class="number-input" value="{{ item.quantity }}"></p>
+                </div>
+            </div>
+        </div>
+        <div class="fw-bold">
+            <p>Total: ${{ totalPrice }}</p>
+        </div>
+    </div>
+    <form #form="ngForm" (ngSubmit)="submitOrder()">
+        <div class="form-margin">
+            <div class="mb-3">
+                <label for="fullName" class="form-label">Full name</label>
+                <input type="text" [(ngModel)]="name" class="form-control" id="fullName" name="fullName"
+                    placeholder="(minimum 6 characters)">
+            </div>
+            <div class="mb-3">
+                <label for="address" class="form-label">Address</label>
+                <input type="email" [(ngModel)]="email" class="form-control" id="address" name="address"
+                    placeholder="(minimum 6 characters)">
+            </div>
+            <div class="mb-3">
+                <label for="credit" class="form-label">Credit card number</label>
+                <input type="text" [(ngModel)]="credit" class="form-control" id="credit" name="credit"
+                    placeholder="(16-digit number)">
+                <div id="hintCredit" class="form-text pt-2" style="font-size: 12px;">We'll never share your payment
+                    details with anyone else.</div>
+            </div>
+            <button type="submit" class="btn btn-primary"
+                [disabled]="!name || !email || !credit || !totalPrice">Submit</button>
+        </div>
+    </form>
+</div>

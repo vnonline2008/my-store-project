@@ -16,5 +16,10 @@
   }
   
   .confirmation-item {
-    margin-bottom: 30px;
+    margin-bottom: 20px;
+  }
+
+  .icon {
+    width: 28px;
+    margin-bottom: 10px;
   }
